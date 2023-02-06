@@ -1,0 +1,36 @@
+{
+  "name": "nilow-app-backend-api",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "14.13.0",
+    "npm": "6.14.8"
+  },
+  "nodemonConfig": {
+    "ext": "js json html .env"
+  },
+  "scripts": {
+    "start": "node ./bin/www",
+    "dev": "nodemon --exec npm run start",
+    "clean": "rm -rf ../build || true",
+    "build": "npm run clean && cp -rf . ../build && cd ../build && rm -f .env .env.example && zip -r Archive.zip . && rm -f ../nilow_app_backend_api/Archive.zip || true && cp Archive.zip ../nilow_app_backend_api/Archive.zip && cd .. && rm -rf build"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.480.0",
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "date-and-time": "^2.0.1",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "express-fileupload": "^1.2.1",
+    "express-validator": "^6.13.0",
+    "jwt-simple": "^0.5.6",
+    "mongoose": "^6.0.11",
+    "morgan": "~1.9.1",
+    "node-schedule": "^2.0.0",
+    "referral-codes": "^2.0.3",
+    "uuid": "^8.3.2"
+  }
+}
